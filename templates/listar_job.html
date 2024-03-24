@@ -6,11 +6,7 @@
     <title>Listado de trabajos</title>
 </head>
 <body>
-<!-- Formulario de búsqueda -->
-    <form action="{% url 'buscar_trabajo' %}" method="GET">
-        <input type="text" name="q" placeholder="Buscar trabajo por nombre o descripción">
-        <button type="submit">Buscar</button>
-    </form>
+
     <h1>Listado de Puestos Trabajos</h1>
     <ul>
         {% for job in jobs %}
