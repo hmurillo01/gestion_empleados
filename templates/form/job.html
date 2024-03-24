@@ -1,0 +1,27 @@
+<form action="{%url "savejob" %}" method="post">
+  {% csrf_token %}
+  <div>
+    <div>
+      <label for="">Nombre puesto de trabajo</label>
+    </div>
+    <input type="text" name="name">
+  </div>
+  <br>
+  <div>
+    <div>
+      <label for="description">Descripción de puesto de trabajo</label>
+    </div>
+    <textarea name="description" id="" cols="30" rows="10"></textarea>
+  </div>
+  <br>
+
+  <label for="salary">salarios</label>
+  <select name="salary">
+    {%for sal in salary %}
+    <option value="{{sal.id}}">{{sal.amount}}</option>
+    {% endfor %}
+  </select>
+  </div>
+  <br>
+  <button type="submit">Guardar</button>
+</form>

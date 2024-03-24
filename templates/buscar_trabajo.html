@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Trabajo</title>
+</head>
+<body>
+    <h1>Buscar Trabajo</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form action="{% url 'buscar_trabajo' %}" method="GET">
+        <input type="text" name="q" placeholder="Buscar trabajo por nombre o descripción">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <!-- Resultados de la búsqueda -->
+    {% if jobs %}
+        <h2>Resultados de la búsqueda:</h2>
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <strong>Nombre:</strong> {{ job.name }}<br>
+                    <strong>Descripción:</strong> {{ job.description }}<br>
+                    <strong>Salario:</strong> {{ job.salary.amount }}<br>
+                </li>
+            {% empty %}
+                <li>No se encontraron trabajos que coincidan con tu búsqueda.</li>
+            {% endfor %}
+        </ul>
+        
+        <!-- Botón para quitar la búsqueda -->
+        <form action="{% url 'buscar_trabajo' %}" method="GET">
+            <button type="submit">Quitar búsqueda</button>
+        </form>
+    {% endif %}
+</body>
+</html>
+
+
+
+

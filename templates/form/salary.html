@@ -1,0 +1,12 @@
+<form action="{% url 'save' %}" method="get">
+  <input type="text" name="amount" placeholder="Ingrese el valor">
+  <label for="extra_dec">
+    Pago diciembre
+    <input type="checkbox" name="extra_dec" id="">
+  </label>
+  <label for="extra_jun">
+    Pago Junio
+    <input type="checkbox" name="extra_jun" id="">
+  </label>
+  <button type="submit">Guardar</button>
+</form>
