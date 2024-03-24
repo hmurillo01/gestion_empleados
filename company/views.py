@@ -40,8 +40,6 @@ def lista_salarios(request):
   
 
 
-from .models import Job
-
 def listar_job(request):
     # Obtener todos los trabajos y sus salarios asociados
     jobs = Job.objects.all()
@@ -56,6 +54,9 @@ def buscar_trabajo(request):
         # Realizar la búsqueda en los trabajos por nombre o descripción
         jobs = Job.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
     return render(request, 'buscar_trabajo.html', {'jobs': jobs})
+  
+  
+
 
 
 
